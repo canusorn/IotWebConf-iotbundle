@@ -100,7 +100,6 @@ bool IotWebConf::init()
 #elif defined(ESP32)
   WiFi.setHostname(this->_thingName);
 #endif
-#define IOTWEBCONF_CONFIG_USE_MDNS 80
 #ifdef IOTWEBCONF_CONFIG_USE_MDNS
   MDNS.begin(this->_thingName);
   MDNS.addService("http", "tcp", IOTWEBCONF_CONFIG_USE_MDNS);
