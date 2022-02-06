@@ -88,9 +88,9 @@ namespace iotwebconf
     if (!validConfig)
     {
       // -- No config
-      this->_apPassword[0] = '\0';
-      this->_wifiParameters._wifiSsid[0] = '\0';
-      this->_wifiParameters._wifiPassword[0] = '\0';
+      // this->_apPassword[0] = '\0';
+      // this->_wifiParameters._wifiSsid[0] = '\0';
+      // this->_wifiParameters._wifiPassword[0] = '\0';
     }
     this->_apTimeoutMs = atoi(this->_apTimeoutStr) * 1000;
 
@@ -162,8 +162,13 @@ namespace iotwebconf
     }
     else
     {
-      IOTWEBCONF_DEBUG_LINE(F("Wrong config version. Applying defaults."));
+      // IOTWEBCONF_DEBUG_LINE(F("Wrong config version. Applying defaults."));
+
+// set default
       this->_allParameters.applyDefaultValue();
+
+// restore default values
+
 #ifdef IOTWEBCONF_DEBUG_TO_SERIAL
       this->_allParameters.debugTo(&Serial);
 #endif
