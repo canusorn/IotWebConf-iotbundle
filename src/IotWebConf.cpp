@@ -58,6 +58,11 @@ namespace iotwebconf
     return this->_thingName;
   }
 
+  char *IotWebConf::getSSID()
+  {
+    return this->_wifiParameters._wifiSsid;
+  }
+
   void IotWebConf::setConfigPin(int configPin)
   {
     this->_configPin = configPin;

@@ -368,6 +368,12 @@ public:
    */
   char* getThingName();
 
+
+ /**
+   * Getter for the ssid.
+   */
+  char* getSSID();
+
   /**
    * Use this delay, to prevent blocking IotWebConf.
    */
