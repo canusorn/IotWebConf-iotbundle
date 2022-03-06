@@ -39,11 +39,11 @@ const char IOTWEBCONF_HTML_SCRIPT_INNER[] PROGMEM = "function c(l){document.getE
 const char IOTWEBCONF_HTML_HEAD_END[] PROGMEM     = "</head><body>";
 const char IOTWEBCONF_HTML_BODY_INNER[] PROGMEM   = "<div style='text-align:left;display:inline-block;min-width:260px;'>\n";
 const char IOTWEBCONF_HTML_FORM_START[] PROGMEM   = "<form action='' method='post'><input type='hidden' name='iotSave' value='true'>\n";
-const char IOTWEBCONF_HTML_FORM_END[] PROGMEM     = "<button type='submit' style='margin-top: 10px;'>Apply</button></form>\n";
-const char IOTWEBCONF_HTML_SAVED[] PROGMEM        = "<div>Configuration saved<br />Return to <a href='/'>home page</a>.</div>\n";
+const char IOTWEBCONF_HTML_FORM_END[] PROGMEM     = "<button type='submit' style='margin-top: 10px;'>บันทึก</button></form>\n<button style='margin-top: 10px;' onclick=\"if(confirm('คุณกำลังจะลบข้อมูลตั้งค่าทั้งหมด'))  window.location.href='/cleareeprom'\">รีเซ็ตค่าทั้งหมด</button>";
+const char IOTWEBCONF_HTML_SAVED[] PROGMEM        = "<div>บันทึกเรียบร้อยแล้ว<br />กลับ<a href='/'>หน้าหลัก</a>.</div>\n";
 const char IOTWEBCONF_HTML_END[] PROGMEM          = "</div></body></html>";
-const char IOTWEBCONF_HTML_UPDATE[] PROGMEM       = "<div style='padding-top:25px;'><a href='{u}'>Firmware update</a></div>\n";
-const char IOTWEBCONF_HTML_CONFIG_VER[] PROGMEM   = "<div style='font-size: .6em;'>Firmware config version '{v}'</div>\n";
+const char IOTWEBCONF_HTML_UPDATE[] PROGMEM       = "<div style='padding-top:25px;'><a href='{u}'>อัพเดทเฟิร์มแวร์</a></div>\n";
+const char IOTWEBCONF_HTML_CONFIG_VER[] PROGMEM   = "<div style='font-size: .6em;'>เฟิร์มแวร์เวอร์ชั่นปัจจุบัน '{v}'</div>\n";
 
 // -- User name on login.
 #define IOTWEBCONF_ADMIN_USER_NAME "admin"
@@ -583,7 +583,7 @@ private:
   bool _skipApStartup = false;
   bool _forceApMode = false;
   ParameterGroup _allParameters = ParameterGroup("iwcAll");
-  ParameterGroup _systemParameters = ParameterGroup("iwcSys", "System configuration");
+  ParameterGroup _systemParameters = ParameterGroup("iwcSys", "ตั้งค่าการเชื่อมต่อ WIFI");
   ParameterGroup _customParameterGroups = ParameterGroup("iwcCustom");
   ParameterGroup _hiddenParameters = ParameterGroup("hidden");
   WifiParameterGroup _wifiParameters = WifiParameterGroup("iwcWifi0");
