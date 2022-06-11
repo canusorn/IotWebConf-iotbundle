@@ -588,7 +588,7 @@ private:
   ParameterGroup _hiddenParameters = ParameterGroup("hidden");
   WifiParameterGroup _wifiParameters = WifiParameterGroup("iwcWifi0");
   TextParameter _thingNameParameter =
-    TextParameter("ชื่ออุปกรณ์", "iwcThingName", this->_thingName, IOTWEBCONF_WORD_LEN);
+    TextParameter("ชื่ออุปกรณ์(ภาษาอังกฤษ, ห้ามเว้นวรรค)", "iwcThingName", this->_thingName, IOTWEBCONF_WORD_LEN);
   PasswordParameter _apPasswordParameter =
     PasswordParameter("รหัสผ่านอุปกรณ์", "iwcApPassword", this->_apPassword, IOTWEBCONF_PASSWORD_LEN);
   NumberParameter _apTimeoutParameter =
