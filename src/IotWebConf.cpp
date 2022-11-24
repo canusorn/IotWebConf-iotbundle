@@ -134,8 +134,8 @@ namespace iotwebconf
   {
     int size = this->_allParameters.getStorageSize();
 #ifdef IOTWEBCONF_DEBUG_TO_SERIAL
-    Serial.print("Config version: ");
-    Serial.println(this->_configVersion);
+    // Serial.print("Config version: ");
+    // Serial.println(this->_configVersion);
     Serial.print("Config size: ");
     Serial.println(size);
 #endif
@@ -169,10 +169,10 @@ namespace iotwebconf
     {
       // IOTWEBCONF_DEBUG_LINE(F("Wrong config version. Applying defaults."));
 
-// set default
+      // set default
       this->_allParameters.applyDefaultValue();
 
-// restore default values
+      // restore default values
 
 #ifdef IOTWEBCONF_DEBUG_TO_SERIAL
       this->_allParameters.debugTo(&Serial);
@@ -339,9 +339,9 @@ namespace iotwebconf
 
       // -- Fill config version string;
       {
-        String pitem = htmlFormatProvider->getConfigVer();
-        pitem.replace("{v}", this->_configVersion);
-        content += pitem;
+        // String pitem = htmlFormatProvider->getConfigVer();
+        // pitem.replace("{v}", this->_configVersion);
+        // content += pitem;
       }
 
       content += htmlFormatProvider->getEnd();
