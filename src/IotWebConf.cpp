@@ -149,8 +149,14 @@ namespace iotwebconf
   bool IotWebConf::loadConfig()
   {
     int size = this->initConfig();
+
+#ifdef ESP8266
     EEPROM.begin(
         IOTWEBCONF_CONFIG_START + IOTWEBCONF_CONFIG_VERSION_LENGTH + size);
+#elif defined(ESP32)
+    if(EEPROM.length() != 512)
+      EEPROM.begin(512);
+#endif
 
     if (this->testConfigVersion())
     {
@@ -191,8 +197,14 @@ namespace iotwebconf
     {
       this->_configSavingCallback(size);
     }
+
+#ifdef ESP8266
     EEPROM.begin(
         IOTWEBCONF_CONFIG_START + IOTWEBCONF_CONFIG_VERSION_LENGTH + size);
+#elif defined(ESP32)
+    if(EEPROM.length() != 512)
+      EEPROM.begin(512);
+#endif
 
     this->saveConfigVersion();
     int start = IOTWEBCONF_CONFIG_START + IOTWEBCONF_CONFIG_VERSION_LENGTH;
